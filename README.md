@@ -37,21 +37,6 @@ Aplikasi web **Pokemon Training Academy** adalah sistem manajemen training Pokem
 
 ---
 
-## 🛠 4 pillar oop
-
-- **Backend**: PHP 7.4+ (Native, tanpa framework)
-- **Frontend**: HTML5 + CSS3 murni
-- **Data Storage**: 
-  - PHP Sessions untuk state Pokemon
-  - JSON file untuk history
-- **Architecture**: Object-Oriented Programming (OOP)
-  - Interface
-  - Abstract Class
-  - Inheritance
-  - Encapsulation
-
----
-
 ## 📁 Struktur File
 
 ```
