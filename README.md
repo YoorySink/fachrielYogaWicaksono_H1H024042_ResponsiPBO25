@@ -67,6 +67,8 @@ Pastikan file berikut ada di folder yang sama:
 - `index.php`
 - `history.json`
 
+atau pakai autoload.php saja
+
 #### **2. Jalankan dengan PHP Built-in Server**
 ```bash
 php -S localhost:8000
