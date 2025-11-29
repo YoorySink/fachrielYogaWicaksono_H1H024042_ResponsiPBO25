@@ -548,6 +548,7 @@ Jika energy rendah (<20), klik "😴 Rest" untuk restore energy +20.
 ### 8️⃣ **Unlock Moves**
 Pokemon otomatis unlock moves baru setiap mencapai level tertentu:
 - Level 10, 20, 30
+![Uploading Pokémon Training Academy - Google Chrome 2025-11-29 16-55-26.gif…]()
 
 ---
 
