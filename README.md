@@ -3,10 +3,9 @@
 
 Aplikasi web **Pokemon Training Academy** adalah sistem manajemen training Pokemon yang dibangun dengan **PHP native murni** tanpa framework. Aplikasi ini menerapkan konsep **Object-Oriented Programming (OOP)** dengan interface, abstract class, Polymorphism, dan inheritance untuk mengelola 4 jenis elemen Pokemon (Electric, Grass, Fire, Water).
 
-## 📋 Daftar Isi
+## Daftar Isi
 
 - [Fitur Utama](#-fitur-utama)
-- [Struktur File](#-struktur-file)
 - [Cara Menjalankan](#-cara-menjalankan)
 - [Penjelasan Kode](#-penjelasan-kode)
   - [1. pokemon.php](#1-pokemonphp)
@@ -22,7 +21,7 @@ Aplikasi web **Pokemon Training Academy** adalah sistem manajemen training Pokem
 ##  Fitur Utama
 
 ###  intinya
-- **4 Jenis Pokemon**: Electric ⚡, Grass 🌿, Fire 🔥, Water 💧 tapi lebih fokus ke raichu ⚡
+- **4 Jenis Pokemon**: Electric ⚡, Grass, Fire , Water. tapi lebih fokus ke raichu ⚡
 - **Level Progression System**: Pokemon naik level berdasarkan training
 - **Energy Management**: Setiap training mengkonsumsi energy, bisa di-restore dengan Rest
 - **Stats System**: HP, ATK, DEF, SPD yang bertambah setiap naik level
@@ -351,7 +350,7 @@ class Training {
 | **Energy Cost** | `duration` (10min = -10 energy, 20min = -20 energy) |
 | **Base Increase** | `(duration / 10)` |
 | **Same Type Bonus** | Bonus x2 jika tipe training = tipe Pokemon |
-| **HP Increase** | `base + 100` |
+| **HP Increase** | `base + 100 (kasus khusus +150 kelipatan 5` |
 | **Attack Increase** | `base + 20` (jika category = Attack) |
 | **Defense Increase** | `base + 10` (jika category = Defense) |
 | **Speed Increase** | `base + 5` (jika category = Speed) |
