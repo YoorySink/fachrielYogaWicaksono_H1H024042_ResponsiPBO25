@@ -121,17 +121,17 @@ http://localhost:8000
 
 #### **Properties**
 
-| Property | Type | Access | Deskripsi |
-|----------|------|--------|-----------|
-| `$name` | `string` | `protected` | Nama Pokemon |
-| `$type` | `string` | `protected` | Tipe elemen Pokemon |
-| `$level` | `int` | `protected` | Level Pokemon (1-100) |
-| `$hp` | `int` | `protected` | Health Points |
-| `$energy` | `int` | `protected` | Energy untuk training (0-100) |
-| `$atk` | `int` | `protected` | Attack stat |
-| `$def` | `int` | `protected` | Defense stat |
-| `$spd` | `int` | `protected` | Speed stat |
-| `$moves` | `array` | `protected` | Array moves yang sudah di-unlock |
+| Property | Type | Deskripsi |
+|----------|------|-----------|
+| `$name` | `string`  | Nama Pokemon |
+| `$type` | `string`  | Tipe elemen Pokemon |
+| `$level` | `int` | Level Pokemon (1-100) |
+| `$hp` | `int` | Health Points |
+| `$energy` | `int`  | Energy untuk training (0-100) |
+| `$atk` | `int`  | Attack stat |
+| `$def` | `int`  | Defense stat |
+| `$spd` | `int`  | Speed stat |
+| `$moves` | `array`  | Array moves yang sudah di-unlock |
 
 #### **Methods**
 
