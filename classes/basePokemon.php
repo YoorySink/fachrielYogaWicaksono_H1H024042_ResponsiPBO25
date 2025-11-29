@@ -8,7 +8,7 @@ abstract class BasePokemon implements Pokemon {
     public $hp;
     public $moves = [];
 
-    // new stats
+    // stats tambahan
     public $atk;
     public $def;
     public $spd;
@@ -25,10 +25,10 @@ abstract class BasePokemon implements Pokemon {
         $this->def  = $def;
         $this->spd  = $spd;
 
-        $this->moves = []; // start empty
+        $this->moves = []; // kosongan dulu
     }
 
-    // getters required by interface
+    //syarat interface
     public function getName()  { return $this->name; }
     public function getType()  { return $this->type; }
     public function getLevel() { return $this->level; }
@@ -39,7 +39,7 @@ abstract class BasePokemon implements Pokemon {
     public function getEnergy(){ return $this->energy; }
     public function getMoves() { return $this->moves; }
 
-    // default, species can override
+    // default,  override
     public function specialMove() {
         return "No special move";
     }

@@ -22,8 +22,8 @@ Aplikasi web **Pokemon Training Academy** adalah sistem manajemen training Pokem
 
 ##  Fitur Utama
 
-###  Core Features
-- **4 Jenis Pokemon**: Electric ⚡, Grass 🌿, Fire 🔥, Water 💧
+###  intinya
+- **4 Jenis Pokemon**: Electric ⚡, Grass 🌿, Fire 🔥, Water 💧 tapi lebih fokus ke raichu ⚡
 - **Level Progression System**: Pokemon naik level berdasarkan training
 - **Energy Management**: Setiap training mengkonsumsi energy, bisa di-restore dengan Rest
 - **Stats System**: HP, ATK, DEF, SPD yang bertambah setiap naik level
@@ -36,13 +36,9 @@ Aplikasi web **Pokemon Training Academy** adalah sistem manajemen training Pokem
 - **Duration Options**: 5min, 10min, 15min, 20min dengan konsumsi energy berbeda
 - **History System**: Menyimpan semua aktivitas training ke file JSON
 
-### 💾 Data Persistence
-- **Session Management**: State Pokemon tersimpan di PHP session
-- **JSON File Storage**: History training tersimpan permanent di `history.json`
-
 ---
 
-## 🛠 Teknologi
+## 🛠 4 pillar oop
 
 - **Backend**: PHP 7.4+ (Native, tanpa framework)
 - **Frontend**: HTML5 + CSS3 murni
@@ -76,21 +72,7 @@ pokemon-training-academy/
 ---
 
 ## 🚀 Cara Menjalankan
-
-### Persyaratan
-- PHP 7.4 atau lebih tinggi
-- Web server (Apache/Nginx) atau PHP built-in server
-- Browser modern (Chrome, Firefox, Edge, Safari)
-
-### Langkah-langkah
-
-#### **1. Clone atau Download Project**
-```bash
-git clone <repository-url>
-cd pokemon-training-academy
-```
-
-#### **2. Pastikan Semua File Ada**
+#### **1. Pastikan Semua File Ada**
 Pastikan file berikut ada di folder yang sama:
 - `pokemon.php`
 - `basePokemon.php`
@@ -101,20 +83,15 @@ Pastikan file berikut ada di folder yang sama:
 - `index.php`
 - `history.json`
 
-#### **3. Jalankan dengan PHP Built-in Server**
+#### **2. Jalankan dengan PHP Built-in Server**
 ```bash
 php -S localhost:8000
 ```
 
-#### **4. Buka di Browser**
+#### **3. Buka di Browser**
 ```
 http://localhost:8000
 ```
-
-#### **Atau Jalankan dengan Apache/Nginx**
-1. Copy semua file ke folder `htdocs` (XAMPP) atau `www` (WAMP)
-2. Akses via: `http://localhost/pokemon-training-academy/`
-
 ---
 
 ## 📖 Penjelasan Kode
@@ -201,10 +178,10 @@ http://localhost:8000
 
 **Link**: [`classPokemon.php`](./classPokemon.php)
 
-**Deskripsi**: File yang berisi 4 concrete class Pokemon yang extend `BasePokemon`. Setiap class merepresentasikan satu elemen Pokemon.
+**Deskripsi**: File yang berisi 4  class Pokemon yang extend `BasePokemon`. Setiap class merepresentasikan satu elemen Pokemon.
 
-#### **Class: ElectricPokemon**
-
+#### **Class: ElectricPokemon ; raichu**
+sebagai salah satu contoh
 ```php
 class ElectricPokemon extends BasePokemon {
     public function __construct($name = "Raichu") {
@@ -223,65 +200,7 @@ class ElectricPokemon extends BasePokemon {
 | **Special Move** | Thunder Shock ⚡ |
 | **Karakteristik** | ATK tinggi, balanced stats |
 
-#### **Class: GrassPokemon**
 
-```php
-class GrassPokemon extends BasePokemon {
-    public function __construct($name = "Bulbasaur") {
-        parent::__construct($name, "Grass", 1, 300, 100, 8, 12, 6);
-        $this->moves[] = "Tackle 🌿";
-    }
-    public function specialMove() { return "Tackle 🌿"; }
-}
-```
-
-| Aspect | Value |
-|--------|-------|
-| **Default Name** | Bulbasaur |
-| **Type** | Grass 🌿 |
-| **Initial Stats** | HP: 300, Energy: 100, ATK: 8, DEF: 12, SPD: 6 |
-| **Special Move** | Tackle 🌿 |
-| **Karakteristik** | DEF tinggi, SPD rendah |
-
-#### **Class: FirePokemon**
-
-```php
-class FirePokemon extends BasePokemon {
-    public function __construct($name = "Charmander") {
-        parent::__construct($name, "Fire", 1, 300, 100, 11, 9, 8);
-        $this->moves[] = "Ember Spark 🔥";
-    }
-    public function specialMove() { return "Ember Spark 🔥"; }
-}
-```
-
-| Aspect | Value |
-|--------|-------|
-| **Default Name** | Charmander |
-| **Type** | Fire 🔥 |
-| **Initial Stats** | HP: 300, Energy: 100, ATK: 11, DEF: 9, SPD: 8 |
-| **Special Move** | Ember Spark 🔥 |
-| **Karakteristik** | Balanced stats |
-
-#### **Class: WaterPokemon**
-
-```php
-class WaterPokemon extends BasePokemon {
-    public function __construct($name = "Squirtle") {
-        parent::__construct($name, "Water", 1, 300, 100, 9, 11, 7);
-        $this->moves[] = "Bubble Shot 💧";
-    }
-    public function specialMove() { return "Bubble Shot 💧"; }
-}
-```
-
-| Aspect | Value |
-|--------|-------|
-| **Default Name** | Squirtle |
-| **Type** | Water 💧 |
-| **Initial Stats** | HP: 300, Energy: 100, ATK: 9, DEF: 11, SPD: 7 |
-| **Special Move** | Bubble Shot 💧 |
-| **Karakteristik** | DEF tinggi, balanced |
 
 #### **Konsep OOP**
 - **Inheritance**: Semua class extend `BasePokemon`
@@ -326,7 +245,6 @@ class ElementMoves {
 
 #### **Konsep OOP**
 - **Static Method**: Method bisa dipanggil tanpa instantiate object
-- **Data Structure**: Menggunakan associative array untuk mapping level → move
 
 ---
 
@@ -383,7 +301,6 @@ class TrainingDescriptions {
 
 #### **Konsep OOP**
 - **Static Method**: Tidak perlu instantiate untuk mengakses data
-- **Multi-dimensional Array**: Array 2 dimensi untuk mapping category → type → description
 
 ---
 
@@ -409,27 +326,24 @@ class Training {
 | `generateChoices()` | `string $pokemonType, string $category` | `array` | Generate 3 random choices training dengan tipe berbeda dan bonus random 1-3 |
 | `process()` | `Pokemon $pokemon, string $chosenType, string $category, int $duration` | `array` | Process training: validasi energy, increase stats, cek level up, unlock moves |
 
-#### **Training Logic**
-
 ##### **generateChoices()**
-
 **Output Format**:
 ```php
 [
     [
         'type' => 'Electric',
-        'bonus' => 2,
-        'description' => 'Unleash powerful Thunder attacks on targets'
+        'bonus' => 1/2/3,
+        'description' => 'Penyaluran Voltase Puncak: Fokus Petir Terpusat'
     ],
     [
         'type' => 'Grass',
-        'bonus' => 1,
-        'description' => 'Strike through dense vegetation efficiently'
+        'bonus' => 1/2/3,
+        'description' => 'Badai Daun Silet: Latihan Ketajaman Klorofil'
     ],
     [
         'type' => 'Fire',
-        'bonus' => 3,
-        'description' => 'Perfect your flame-punching techniques'
+        'bonus' => 1/2/3,
+        'description' => 'Semburan Inferno: Pernapasan Inti Magma'
     ]
 ]
 ```
@@ -437,7 +351,7 @@ class Training {
 **Rules**:
 - Generate 3 pilihan dengan tipe berbeda
 - Salah satu pilihan harus sesuai dengan tipe Pokemon (bonus x2)
-- Bonus random 1-3 untuk setiap pilihan
+- stat bertambah 1-3 untuk setiap pilihan sesuai durasi
 - Jika tipe cocok dengan Pokemon, bonus dikali 2
 
 ##### **process()**
@@ -494,18 +408,13 @@ class Training {
 4. Call `$pokemon->addMove()` untuk setiap new move
 5. Call `$pokemon->levelUp()` jika HP mencapai threshold level berikutnya
 
-#### **Konsep OOP**
-- **Static Methods**: Tidak perlu instantiate Training object
-- **Dependency Injection**: Menerima Pokemon object sebagai parameter
-- **Return Array**: Mengembalikan hasil dalam bentuk associative array
-
 ---
 
 ### 7. `index.php`
 
 **Link**: [`index.php`](./index.php)
 
-**Deskripsi**: Main application file yang berisi Controller logic dan View (HTML). Handle semua user interaction, session management, dan rendering UI.
+**Deskripsi**: Main application file yang berisi html dan css.
 
 #### **Architecture**
 
@@ -524,12 +433,12 @@ index.php
 |------|------|-----------|
 | 4 | `pokemon.php` | Interface Pokemon |
 | 5 | `basePokemon.php` | Abstract class BasePokemon |
-| 6 | `classPokemon.php` | Concrete Pokemon classes |
-| 7 | `elemenMoves.php` | Moves data |
+| 6 | `classPokemon.php` | class pokemon perelemen |
+| 7 | `elemenMoves.php` | jurus pokemon |
 | 8 | `trainingDescriptions.php` | Training descriptions |
-| 9 | `training.php` | Training logic |
+| 9 | `training.php` | cara kerja Training |
 
-**⚠️ Important**: Semua class harus di-load **SEBELUM** `session_start()` untuk menghindari error "incomplete object" saat unserialize session.
+atau bisa langsung dengan autoload.php
 
 #### **2. Helper Functions**
 
@@ -538,86 +447,8 @@ index.php
 | `loadHistory()` | - | `array` | Load history dari `history.json`, return empty array jika file tidak ada |
 | `saveHistory()` | `array $history` | `void` | Save history ke `history.json` dengan format JSON pretty print |
 
-#### **3. Session Initialization**
 
-| Session Key | Type | Deskripsi |
-|-------------|------|-----------|
-| `$_SESSION['pokemon']` | `array` | Array berisi 4 object Pokemon (Electric, Grass, Fire, Water) |
-| `$_SESSION['selected']` | `int` | Index Pokemon yang sedang dipilih (0-3) |
-| `$_SESSION['category']` | `string` | Kategori training yang dipilih (Attack/Defense/Speed) |
-| `$_SESSION['choices']` | `array` | 3 pilihan training yang di-generate |
-| `$_SESSION['choice_index']` | `int` | Index pilihan training yang dipilih (0-2) |
-| `$_SESSION['duration']` | `int` | Durasi training yang dipilih (5/10/15/20) |
-
-#### **4. POST Actions / Controller**
-
-| Action | Method | Deskripsi |
-|--------|--------|-----------|
-| **select_pokemon** | POST | Set `$_SESSION['selected']` dengan index Pokemon, reset training state |
-| **select_category** | POST | Set `$_SESSION['category']` (Attack/Defense/Speed), reset choices & duration |
-| **generate_choices** | POST | Call `Training::generateChoices()`, simpan hasil ke `$_SESSION['choices']` |
-| **select_choice** | POST | Set `$_SESSION['choice_index']` dengan index pilihan yang dipilih |
-| **select_duration** | POST | Set `$_SESSION['duration']` dengan durasi yang dipilih |
-| **train** | POST | Process training: <br>1. Validate energy<br>2. Call `Training::process()`<br>3. Update Pokemon stats<br>4. Save history<br>5. Show alert |
-| **rest** | POST | Call `$pokemon->rest()` untuk restore energy +20, save history |
-
-#### **5. View Structure**
-
-```html
-<body>
-  <!-- Alert Section -->
-  <div class="alert">Success/Error message</div>
-  
-  <div class="container">
-    <!-- Left Column: Pokemon Selection -->
-    <div class="left-column">
-      <h2>Pokemon Selection</h2>
-      <!-- 4 Pokemon Buttons -->
-      
-      <h2>Pokemon Stats</h2>
-      <!-- Stats Display: Level, HP, ATK, DEF, SPD, Energy -->
-      
-      <h2>Moves</h2>
-      <!-- List of unlocked moves -->
-      
-      <!-- Rest Button -->
-    </div>
-    
-    <!-- Right Column: Training & History -->
-    <div class="right-column">
-      <h2>Training Category</h2>
-      <!-- Attack / Defense / Speed Buttons -->
-      
-      <h2>Training Choices</h2>
-      <!-- Generate Choices Button -->
-      <!-- 3 Training Options -->
-      
-      <h2>Duration</h2>
-      <!-- 5min / 10min / 15min / 20min Buttons -->
-      
-      <!-- Start Training Button -->
-      
-      <h2>History</h2>
-      <!-- List 10 latest history items -->
-    </div>
-  </div>
-</body>
-```
-
-#### **6. Key Variables**
-
-| Variable | Type | Scope | Deskripsi |
-|----------|------|-------|-----------|
-| `$currentPokemon` | `Pokemon` | View | Pokemon yang sedang dipilih (`$_SESSION['pokemon'][$_SESSION['selected']]`) |
-| `$selectedCategory` | `string` | View | Kategori yang dipilih (`$_SESSION['category'] ?? null`) |
-| `$choices` | `array` | View | Pilihan training (`$_SESSION['choices'] ?? null`) |
-| `$selectedChoiceIndex` | `int` | View | Index pilihan yang dipilih (`$_SESSION['choice_index'] ?? null`) |
-| `$selectedDuration` | `int` | View | Durasi yang dipilih (`$_SESSION['duration'] ?? null`) |
-| `$history` | `array` | Global | History dari JSON file |
-| `$alert` | `string` | Global | Pesan alert untuk user |
-| `$alertType` | `string` | Global | Tipe alert ('success' atau 'error') |
-
-#### **7. Flow Diagram**
+#### **3. Flow Diagram**
 
 ```
 User Access
@@ -631,9 +462,9 @@ Initialize Pokemon (if first visit)
 ├─────────────────────────────────────┤
 │ 1. Select Pokemon                   │
 │ 2. Select Category (Attack/Def/Spd) │
-│ 3. Generate Choices (3 options)     │
+│ 3. Generate Choices (3 pilihan)     │
 │ 4. Select Choice                    │
-│ 5. Select Duration (5/10/15/20min)  │
+│ 5. Select Duration (10/20/30min)  │
 │ 6. Click Start Training             │
 └─────────────────────────────────────┘
     ↓
@@ -648,18 +479,6 @@ Save History to JSON
 Show Alert & Refresh Page
 ```
 
-#### **Konsep yang Diterapkan**
-
-- **MVC Pattern** (Simplified):
-  - **Model**: Pokemon classes, Training class
-  - **Controller**: POST handler section
-  - **View**: HTML section
-- **Session Management**: Menyimpan state Pokemon dan training
-- **JSON File I/O**: Load dan save history
-- **Form Handling**: Multiple forms dengan hidden inputs
-- **State Management**: Reset state saat ganti Pokemon/Category
-- **Error Handling**: Validasi energy sebelum training
-
 ---
 
 ### 8. `history.json`
@@ -673,47 +492,42 @@ Show Alert & Refresh Page
 ```json
 [
     {
-        "time": "2025-11-29 10:30:15",
+        "time": "2025-11-29 08:42:49",
         "pokemon": "Raichu",
-        "text": "Attack (Electric) 20min",
+        "text": "Attack (Electric) 30min",
         "before": {
-            "level": 1,
-            "hp": 300,
-            "atk": 12,
+            "level": 27,
+            "hp": 3150,
+            "atk": 132,
             "def": 8,
             "spd": 10,
             "energy": 100,
-            "moves": ["Thunder Shock ⚡"]
+            "moves": [
+                "Thunder Shock ⚡",
+                "Spark ⚡",
+                "Thunder Bolt ⚡⚡"
+            ]
         },
         "after": {
-            "level": 2,
-            "hp": 400,
-            "atk": 22,
+            "level": 31,
+            "hp": 3600,
+            "atk": 152,
             "def": 8,
             "spd": 10,
-            "energy": 80,
-            "moves": ["Thunder Shock ⚡"]
+            "energy": 70,
+            "moves": [
+                "Thunder Shock ⚡",
+                "Spark ⚡",
+                "Thunder Bolt ⚡⚡",
+                "Volt Tackle ⚡💥"
+            ]
         },
-        "unlocked": []
-    },
-    {
-        "time": "2025-11-29 10:25:00",
-        "pokemon": "Bulbasaur",
-        "text": "Rest: Energy 60→80"
+        "unlocked": [
+            "Volt Tackle ⚡💥"
+        ]
     }
 ]
 ```
-
-#### **Fields**
-
-| Field | Type | Required | Deskripsi |
-|-------|------|----------|-----------|
-| `time` | `string` | Yes | Timestamp format `Y-m-d H:i:s` |
-| `pokemon` | `string` | Yes | Nama Pokemon |
-| `text` | `string` | Yes | Deskripsi singkat aktivitas |
-| `before` | `object` | Training only | State Pokemon sebelum training |
-| `after` | `object` | Training only | State Pokemon sesudah training |
-| `unlocked` | `array` | Training only | Array moves yang baru di-unlock |
 
 #### **Penggunaan**
 
@@ -747,10 +561,9 @@ Pilih salah satu dari 3 pilihan. **Tips**: Pilih type yang sama dengan Pokemon t
 
 ### 5️⃣ **Pilih Duration**
 Pilih durasi training:
-- **5min**: -5 energy, gain rendah
-- **10min**: -10 energy, gain sedang
-- **15min**: -15 energy, gain tinggi
-- **20min**: -20 energy, gain sangat tinggi
+- **10min**: -10 energy, gain 1 level
+- **20min**: -20 energy, gain 2 level
+- **30min**: -30 energy, gain 3 level
 
 ### 6️⃣ **Start Training**
 Klik "💪 Start Training" untuk memulai. Pokemon akan:
@@ -764,7 +577,7 @@ Jika energy rendah (<20), klik "😴 Rest" untuk restore energy +20.
 
 ### 8️⃣ **Unlock Moves**
 Pokemon otomatis unlock moves baru setiap mencapai level tertentu:
-- Level 5, 10, 15, 20, 30
+- Level 10, 20, 30
 
 ---
 
@@ -776,43 +589,5 @@ Pokemon otomatis unlock moves baru setiap mencapai level tertentu:
 | **Abstract Class** | `BasePokemon` abstract class |
 | **Inheritance** | Electric/Grass/Fire/WaterPokemon extend BasePokemon |
 | **Encapsulation** | Properties `protected`, akses via getter |
-| **Static Methods** | `Training`, `ElementMoves`, `TrainingDescriptions` |
-| **Dependency Injection** | `Training::process($pokemon, ...)` |
-| **Singleton Pattern** | Session management |
-| **Repository Pattern** | JSON file untuk history storage |
-
----
-
-## 🐛 Troubleshooting
-
-### Error: "Incomplete Object"
-**Penyebab**: Class di-load setelah `session_start()`
-
-**Solusi**: Pastikan urutan di `index.php`:
-```php
-require_once "pokemon.php";         // 1. Load interface
-require_once "basePokemon.php";     // 2. Load abstract class
-require_once "classPokemon.php";    // 3. Load concrete classes
-session_start();                     // 4. Baru start session
-```
-
-### Error: "Syntax Error"
-**Penyebab**: Ada kesalahan syntax di salah satu file PHP
-
-**Solusi**:
-1. Check error message untuk tahu file dan line number
-2. Pastikan semua bracket `{}`, parentheses `()`, dan semicolon `;` sudah benar
-3. Check encoding file (harus UTF-8 without BOM)
-
-### History Tidak Tersimpan
-**Penyebab**: File permission atau `file_put_contents()` gagal
-
-**Solusi**:
-```bash
-# Set permission untuk write
-chmod 666 history.json
-# Atau set permission untuk folder
-chmod 777 .
-```
-
+| **Polymorphism** | `pokemon`, `classPokemon`, `basePokemon` |
 ---

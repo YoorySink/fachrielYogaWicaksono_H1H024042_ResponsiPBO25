@@ -1,6 +1,4 @@
 <?php
-// Include all required classes BEFORE session_start()
-// This ensures classes are loaded before unserializing session objects
 require_once "autoload.php";
 
 // Helper functions for JSON history
@@ -18,7 +16,7 @@ function saveHistory($history) {
     file_put_contents($file, json_encode($history, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
-// Now start session after all classes are loaded
+//start session setelah autoload aktip
 session_start();
 
 // Initialize session data
@@ -105,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $alert .= " | Unlocked: " . implode(', ', $result['unlockedMoves']);
                     }
                     
-                    // Add to history and save to JSON
+                    // history dan save ke JSON
                     array_unshift($history, [
                         'time' => date('Y-m-d H:i:s'),
                         'pokemon' => $currentPokemon->getName(),

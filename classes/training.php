@@ -24,7 +24,7 @@ class Training {
         return $choices;
     }
 
-    // process training: kategori affects stats
+    // process training: kategori yang mempengaruhi stats pokemonnya
     // $category nya adalah atk def spd
     public static function process($pokemon, $trainingElement, $category, $duration){
     // ---- STATE AWAL (SELALU ADA, bahkan kalau gagal)
@@ -38,11 +38,11 @@ class Training {
         "moves"  => $pokemon->moves
     ];
 
-    // ---- Hitung energi yang dibutuhkan per durasi
+    //Hitung energi yang dibutuhkan per durasi
     $costPer10 = 10;                     // 10 energy per 10 menit
     $energyCost = ($duration / 10) * $costPer10;
 
-    // ---- Jika ENERGI TIDAK CUKUP → GAGAL
+    // Jika ENERGI TIDAK CUKUP → GAGAL
     if ($pokemon->getEnergy() < $energyCost) {
         return [
             "success" => false,
@@ -52,24 +52,24 @@ class Training {
         ];
     }
 
-    // ---- Kurangi energy
+    //Kurangi energy
     $pokemon->energy -= $energyCost;
 
-    // ---- Naik level berdasarkan durasi
+    //Naik level berdasarkan durasi
     $levelGain = $duration / 10; // 10 menit = 1 level
     $bonus = 0;
 
-    // ---- Bonus elemen jika cocok
+    //Bonus elemen jika cocok
     if ($pokemon->getType() == $trainingElement) {
         $bonus = rand(1, 2); // bonus level random 1–2
     }
 
     $totalGain = $levelGain + $bonus;
 
-    // ---- Update level
+    //Update level
     $pokemon->level += $totalGain;
 
-    // ---- Hitung stat baru
+    // Hitung stat baru
     // HP +100 per level, dan setiap level 5, 10, 15, 20, 25, 30 → +150
     $hpInc = 0;
     for ($i = 1; $i <= $totalGain; $i++) {
@@ -82,12 +82,12 @@ class Training {
     }
     $pokemon->hp += $hpInc;
 
-    // ---- Stat sesuai kategori
+    //Stat sesuai kategori
     if ($category == "Attack")  $pokemon->atk += 20;
     if ($category == "Defense") $pokemon->def += 10;
     if ($category == "Speed")   $pokemon->spd += 5;
 
-    // ---- Unlock moves
+    //Unlock moves
     $movesUnlocked = [];
     $allMoves = ElementMoves::$moves[$pokemon->getType()];
 
@@ -98,7 +98,7 @@ class Training {
         }
     }
 
-    // ---- STATE SESUDAH LATIHAN (format lengkap)
+    //STATE SESUDAH LATIHAN (format lengkap)
     $after = [
         "level"  => $pokemon->getLevel(),
         "hp"     => $pokemon->getHP(),
