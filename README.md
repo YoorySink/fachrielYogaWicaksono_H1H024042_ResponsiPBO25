@@ -213,24 +213,18 @@ class ElementMoves {
 ```
 
 #### **Moves per Element**
-
-| Level | Electric ⚡ | Grass 🌿 | Fire 🔥 | Water 💧 |
-|-------|------------|----------|---------|----------|
-| 1 | Thunder Shock ⚡ | Tackle 🌿 | Ember Spark 🔥 | Bubble Shot 💧 |
-| 5 | Thunder Wave ⚡ | Vine Whip 🌿 | Flame Burst 🔥 | Water Gun 💧 |
-| 10 | Spark ⚡ | Razor Leaf 🌿 | Fire Fang 🔥 | Aqua Tail 💧 |
-| 15 | Discharge ⚡ | Seed Bomb 🌿 | Flamethrower 🔥 | Hydro Pump 💧 |
-| 20 | Thunderbolt ⚡ | Solar Beam 🌿 | Fire Blast 🔥 | Surf 💧 |
-| 30 | Thunder ⚡ | Leaf Storm 🌿 | Inferno 🔥 | Water Pledge 💧 |
-
+```php
+        "Electric" => [10 => "Spark ⚡", 20 => "Thunder Bolt ⚡⚡", 30 => "Volt Tackle ⚡💥"],
+        "Grass"    => [10 => "Vine Whip 🌿", 20 => "Razor Leaf 🍃", 30 => "Seed Bomb 🌱💥"],
+        "Fire"     => [10 => "Ember 🔥", 20 => "Fire Fang 🔥🐾", 30 => "Flamethrower 🔥💨"],
+        "Water"    => [10 => "Water Gun 💧", 20 => "Water Pulse 🌊", 30 => "Hydro Pump 💦💥"],
+```
 #### **Method**
 
 | Method | Parameter | Return Type | Deskripsi |
 |--------|-----------|-------------|-----------|
 | `getMoves()` | `string $type` | `array` | Return associative array moves dengan key = level unlock |
 
-#### **Konsep OOP**
-- **Static Method**: Method bisa dipanggil tanpa instantiate object
 
 ---
 
@@ -251,8 +245,6 @@ class TrainingDescriptions {
 ```
 
 #### **Training Descriptions**
-
-##### **🎯 Attack Training**
 ```php
         "Attack" => [
             "Electric" => "Penyaluran Voltase Puncak: Fokus Petir Terpusat",
@@ -281,9 +273,6 @@ class TrainingDescriptions {
 | Method | Parameter | Return Type | Deskripsi |
 |--------|-----------|-------------|-----------|
 | `get()` | `string $category, string $type` | `string` | Return deskripsi training sesuai kategori dan type |
-
-#### **Konsep OOP**
-- **Static Method**: Tidak perlu instantiate untuk mengakses data
 
 ---
 
@@ -562,7 +551,7 @@ Pokemon otomatis unlock moves baru setiap mencapai level tertentu:
 
 ---
 
-##  Design Patterns
+##  konsep OOP yang ada
 
 | Pattern | Implementasi |
 |---------|--------------|
